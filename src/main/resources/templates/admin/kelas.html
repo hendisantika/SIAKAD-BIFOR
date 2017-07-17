@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+   <head>
+        <meta charset="utf-8" />
+        <title>SIAKAD SMK BIFOR</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.15/js/jquery.dataTables.min.js"></script>
+        <script src="/js/kelas.js"></script>
+        <link rel="stylesheet" href=
+        "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" 
+              href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.15/css/jquery.dataTables.min.css">
+    </head>
+    <body>
+        <div th:include="fragments/header :: header">
+            
+        </div>
+        <div class="container">
+            <h1 align="center">Data Kelas</h1>
+            <p><a class="btn btn-primary">Tambah Kelas</a></p>
+            <table id="kelasTable" class="display">
+                <thead>
+                    <tr>
+                        <th>Kode Kelas</th>
+                        <th>Nama Kelas</th>
+                        <th>Keterangan</th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </body>
+</html>

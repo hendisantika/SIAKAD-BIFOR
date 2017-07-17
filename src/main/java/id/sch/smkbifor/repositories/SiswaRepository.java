@@ -8,11 +8,13 @@ package id.sch.smkbifor.repositories;
 import id.sch.smkbifor.entities.Siswa;
 import java.io.Serializable;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author dekikurnia
  */
+@Repository("siswaRepository")
 public interface SiswaRepository extends CrudRepository<Siswa, Integer>{
     
 }

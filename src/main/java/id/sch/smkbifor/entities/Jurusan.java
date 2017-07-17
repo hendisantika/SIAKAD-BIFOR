@@ -8,17 +8,13 @@ package id.sch.smkbifor.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 /**
  *
@@ -39,7 +35,7 @@ public class Jurusan implements Serializable {
     
     @Column(name="keterangan")
     private String keterangan;
-    
+      
     @OneToMany(mappedBy="jurusan")
     private List<Siswa> dataSiswa = new ArrayList<>();
     
@@ -96,9 +92,12 @@ public class Jurusan implements Serializable {
     /**
      * @return the dataSiswa
      */
+    
+    /*
     public List<Siswa> getDataSiswa() {
         return dataSiswa;
     }
+    */
 
     /**
      * @param dataSiswa the dataSiswa to set
@@ -106,6 +105,4 @@ public class Jurusan implements Serializable {
     public void setDataSiswa(List<Siswa> dataSiswa) {
         this.dataSiswa = dataSiswa;
     }
-    
-  
 }

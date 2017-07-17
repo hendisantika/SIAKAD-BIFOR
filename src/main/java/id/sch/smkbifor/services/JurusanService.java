@@ -6,7 +6,6 @@
 package id.sch.smkbifor.services;
 
 import id.sch.smkbifor.entities.Jurusan;
-
 /**
  *
  * @author dekikurnia
@@ -15,7 +14,7 @@ public interface JurusanService {
     
     Iterable<Jurusan> listAllJurusan();
 
-    Jurusan getJurusanById(Integer id);
+    public Jurusan getJurusanById(Integer id);
 
     Jurusan saveJurusan(Jurusan jurusan);
 

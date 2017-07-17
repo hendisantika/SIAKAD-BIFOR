@@ -46,6 +46,10 @@ public class Siswa implements Serializable {
     @JoinColumn(name="kode_jurusan", nullable=false)
     private Jurusan jurusan;
     
+    @ManyToOne
+    @JoinColumn(name="kode_kelas", nullable=false)
+    private Kelas kelas;
+    
     @Column(name="agama", length=15)
     private String agama;
     
@@ -146,6 +150,34 @@ public class Siswa implements Serializable {
     }
 
     /**
+     * @return the jurusan
+     */
+    public Jurusan getJurusan() {
+        return jurusan;
+    }
+
+    /**
+     * @param jurusan the jurusan to set
+     */
+    public void setJurusan(Jurusan jurusan) {
+        this.jurusan = jurusan;
+    }
+
+    /**
+     * @return the kelas
+     */
+    public Kelas getKelas() {
+        return kelas;
+    }
+
+    /**
+     * @param kelas the kelas to set
+     */
+    public void setKelas(Kelas kelas) {
+        this.kelas = kelas;
+    }
+
+    /**
      * @return the agama
      */
     public String getAgama() {
@@ -214,19 +246,7 @@ public class Siswa implements Serializable {
     public void setAktif(boolean aktif) {
         this.aktif = aktif;
     }
-
-    /**
-     * @return the jurusan
-     */
-    public Jurusan getJurusan() {
-        return jurusan;
-    }
-
-    /**
-     * @param jurusan the jurusan to set
-     */
-    public void setJurusan(Jurusan jurusan) {
-        this.jurusan = jurusan;
-    }
+    
+    
 
 }
