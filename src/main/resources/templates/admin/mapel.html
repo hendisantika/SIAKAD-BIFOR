@@ -4,6 +4,12 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
    <head>
@@ -12,36 +18,31 @@ and open the template in the editor.
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.15/js/jquery.dataTables.min.js"></script>
-        <script src="/js/kelas.js"></script>
+        <script src="/js/mapel.js"></script>
         <link rel="stylesheet" href=
         "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" 
               href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.15/css/jquery.dataTables.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
     </head>
     <body>
         <div th:include="fragments/header :: header">
+            
         </div>
-        <div id="wrap">
-            <div id="main" class="container clear-top">
-            <h1 align="center">Data Kelas</h1>
-            <p><a th:href="@{/admin/kelas/new}" class="btn btn-primary">Tambah Kelas</a></p>
-            <table id="kelasTable" class="table table-bordered">
+        <div class="container">
+            <h1 align="center">Data Mapel</h1>
+            <p><a th:href="@{/admin/mapel/new}" class="btn btn-primary">Tambah Mapel</a></p>
+            <table id="mapelTable" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Kode Kelas</th>
-                        <th>Nama Kelas</th>
+                        <th>Kode Mapel</th>
+                        <th>Nama Mapel</th>
+                        <th>Jumlah Jam</th>
                         <th>Keterangan</th>
                         <th></th>
                     </tr>
                 </thead>
             </table>
         </div>
-        </div>
-        <footer class="footer">
-            <br/>
-            <p>Copyright &copy; 2017 <a href="http://dekikurnia.com">Deki kurnia hadi permana</a> - All Rights Reserved</p>
-        </footer>
     </body>
 </html>

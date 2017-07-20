@@ -7,6 +7,7 @@ package id.sch.smkbifor.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
@@ -30,6 +33,9 @@ public class Siswa implements Serializable {
     @Column(unique=true, name="nisn", length=30)
     private String nisn;
     
+    @Column(unique=true, name="nis", length=30)
+    private String nis;
+    
     @Column(name="nama_siswa", length=100)
     private String namaSiswa;
     
@@ -40,6 +46,7 @@ public class Siswa implements Serializable {
     private String tempatLahir;
     
     @Column(name="tanggal_lahir")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date tanggalLahir;
     
     @ManyToOne
@@ -61,6 +68,9 @@ public class Siswa implements Serializable {
     
     @Column(name="tahun_diterima", length=4)
     private String tahunDiterima;
+    
+    @Column(name="tahun_lulus", length=4)
+    private String tahunLulus;
     
     @Column(name="aktif")
     private boolean aktif;
@@ -91,6 +101,20 @@ public class Siswa implements Serializable {
      */
     public void setNisn(String nisn) {
         this.nisn = nisn;
+    }
+
+    /**
+     * @return the nis
+     */
+    public String getNis() {
+        return nis;
+    }
+
+    /**
+     * @param nis the nis to set
+     */
+    public void setNis(String nis) {
+        this.nis = nis;
     }
 
     /**
@@ -234,6 +258,20 @@ public class Siswa implements Serializable {
     }
 
     /**
+     * @return the tahunLulus
+     */
+    public String getTahunLulus() {
+        return tahunLulus;
+    }
+
+    /**
+     * @param tahunLulus the tahunLulus to set
+     */
+    public void setTahunLulus(String tahunLulus) {
+        this.tahunLulus = tahunLulus;
+    }
+
+    /**
      * @return the aktif
      */
     public boolean isAktif() {
@@ -247,6 +285,4 @@ public class Siswa implements Serializable {
         this.aktif = aktif;
     }
     
-    
-
 }

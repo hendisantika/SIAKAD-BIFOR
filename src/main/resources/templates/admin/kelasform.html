@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+    <title>Spring Boot Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href=
+        "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div th:include="fragments/header :: header">
+            
+        </div>
+        <div class="container">
+            <h2>Tambah kelas</h2>
+            <div>
+                <form class="form-horizontal" th:object="${kelas}" th:action="@{/kelas}" method="post">
+                    <input type="hidden" th:field="*{id}"/>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Kode kelas</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{kodeKelas}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Nama kelas</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{namaKelas}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Keterangan</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{keterangan}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

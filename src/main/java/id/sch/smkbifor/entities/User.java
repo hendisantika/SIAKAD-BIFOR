@@ -7,6 +7,7 @@ package id.sch.smkbifor.entities;
 
 import java.io.Serializable;
 import java.util.Set;
+import java.util.UUID;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,6 +19,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -54,6 +56,7 @@ public class User implements Serializable {
     
     @Column(name = "active")
     private Integer active;
+    
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "t_user_role", joinColumns = @JoinColumn(name = "user_id"), 
             inverseJoinColumns = @JoinColumn(name = "role_id"))

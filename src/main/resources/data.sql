@@ -7,7 +7,7 @@
  * Author:  dekikurnia
  * Created: 15 Jul 17
 
-*/
+
 INSERT INTO t_jurusan (kode_jurusan, nama_jurusan, keterangan) values ('MM','Multimedia','');
 INSERT INTO t_jurusan (kode_jurusan, nama_jurusan, keterangan) values ('RPL','Rekayasa Perangkat Lunak','');
 INSERT INTO t_jurusan (kode_jurusan, nama_jurusan, keterangan) values ('TKJ','Teknik Komputer Jaringan','');
@@ -33,5 +33,4 @@ INSERT INTO t_guru  (kode_guru, nuptk, nama_guru, jenis_kelamin, tempat_lahir,
        tanggal_lahir, kode_mapel, agama, pendidikan, keterangan) 
             values ('36', '001982138283', 'Slamet waluyo', 'Laki-laki', 'Banyuwangi', 
 '1960-06-27', '1', 'Islam', 'S1 pendidikan matematika', '');
- 
-
+ */
