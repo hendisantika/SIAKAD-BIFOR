@@ -19,4 +19,6 @@ public interface KelasService {
     Kelas saveKelas(Kelas jurusan);
 
     void deleteKelas(Integer id);
+    
+    public Kelas findByKodeKelas (String kodeKelas);
 }

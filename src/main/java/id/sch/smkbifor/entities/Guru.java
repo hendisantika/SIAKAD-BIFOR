@@ -60,7 +60,8 @@ public class Guru implements Serializable {
     private String keterangan;
     
     @ManyToMany(cascade = CascadeType.MERGE)
-    @JoinTable(name = "t_guru_mapel", joinColumns = { @JoinColumn(name = "kode_guru") }, inverseJoinColumns = { @JoinColumn(name = "kode_mapel") })
+    @JoinTable(name = "t_guru_mapel", joinColumns = { @JoinColumn(name = "kode_guru") 
+    }, inverseJoinColumns = { @JoinColumn(name = "kode_mapel") })
     private Set<Mapel> mapel = new HashSet<Mapel>(0);
 
     /**

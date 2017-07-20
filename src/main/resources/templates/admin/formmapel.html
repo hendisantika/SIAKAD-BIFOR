@@ -25,21 +25,27 @@ and open the template in the editor.
                 <form class="form-horizontal" th:object="${mapel}" th:action="@{/mapel}" method="post">
                     <input type="hidden" th:field="*{id}"/>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Kode mapel</label>
+                        <label class="col-sm-4 control-label">Kode Mapel</label>
                         <div class="col-xs-5">
                             <input type="text" class="form-control" th:field="*{kodeMapel}"/>
+                            <label th:if="${#fields.hasErrors('kodeMapel')}" th:errors="*{kodeMapel}"
+								class="validation-message"></label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Nama mapel</label>
+                        <label class="col-sm-4 control-label">Nama Mapel</label>
                         <div class="col-xs-5">
                             <input type="text" class="form-control" th:field="*{namaMapel}"/>
+                            <label th:if="${#fields.hasErrors('namaMapel')}" th:errors="*{namaMapel}"
+								class="validation-message"></label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Jumlah</label>
+                        <label class="col-sm-4 control-label">Jumlah Jam</label>
                         <div class="col-xs-5">
                             <input type="text" class="form-control" th:field="*{jumlahJam}"/>
+                            <label th:if="${#fields.hasErrors('jumlahJam')}" th:errors="*{jumlahJam}"
+								class="validation-message"></label>
                         </div>
                     </div>
                     <div class="form-group">

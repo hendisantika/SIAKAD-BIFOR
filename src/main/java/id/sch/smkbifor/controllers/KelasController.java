@@ -43,8 +43,18 @@ public class KelasController {
     
     @RequestMapping(value="kelas", method=RequestMethod.POST)
     public String saveKelas(@Valid Kelas kelas, BindingResult bindingResult) {
+        Kelas kelasExists = kelasService.findByKodeKelas(kelas.getKodeKelas());
+        if (kelasExists != null) {
+            bindingResult
+                    .rejectValue("kodeKelas", "error.kelas",
+                            "Sudah ada data dengan kode kelas tersebut");
+        }
+        if (bindingResult.hasErrors()) {
+            return "admin/formkelas";
+        } else {
         kelasService.saveKelas(kelas);
-        return "redirect:/admin/kelas"; 
+        return "redirect:/admin/kelas";
+        } 
     }
     
     @RequestMapping("kelas/edit/{id}")

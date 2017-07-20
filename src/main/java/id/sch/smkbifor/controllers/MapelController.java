@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -43,8 +44,18 @@ public class MapelController {
     
     @RequestMapping(value="mapel", method=RequestMethod.POST)
     public String saveMapel(@Valid Mapel mapel, BindingResult bindingResult) {
+        Mapel mapelExists = mapelService.findByKodeMapel(mapel.getKodeMapel());
+        if (mapelExists != null) {
+            bindingResult
+                    .rejectValue("kodeMapel", "error.mapel",
+                            "Sudah ada data dengan kode mapel tersebut");
+        }
+        if (bindingResult.hasErrors()) {
+            return "admin/formmapel";
+        } else {
         mapelService.saveMapel(mapel);
-        return "redirect:/admin/mapel"; 
+        return "redirect:/admin/mapel";
+        }
     }
     
     @RequestMapping("mapel/edit/{id}")

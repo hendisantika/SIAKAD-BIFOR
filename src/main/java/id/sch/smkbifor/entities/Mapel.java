@@ -6,10 +6,7 @@
 package id.sch.smkbifor.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
-import java.util.UUID;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,9 +14,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -31,13 +27,16 @@ public class Mapel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     
-    @Column(name="kode_mapel", length=10)
+    @Column(name="kode_mapel", unique=true, length=10)
+    @NotEmpty(message = "Kode mapel tidak boleh kosong")
     private String kodeMapel;
     
     @Column(name="nama_mapel", length=50)
+    @NotEmpty(message = "Nama mapel tidak boleh kosong")
     private String namaMapel;
     
     @Column(name="jumlah_jam", length=10)
+    @NotEmpty(message = "Jumlah tidak boleh kosong")
     private String jumlahJam;
     
     @Column (name="keterangan")

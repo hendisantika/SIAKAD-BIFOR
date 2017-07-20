@@ -7,6 +7,7 @@
  * Author:  dekikurnia
  * Created: 15 Jul 17
 
+
 INSERT INTO t_jurusan (kode_jurusan, nama_jurusan, keterangan) values ('MM','Multimedia','');
 INSERT INTO t_jurusan (kode_jurusan, nama_jurusan, keterangan) values ('RPL','Rekayasa Perangkat Lunak','');
 INSERT INTO t_jurusan (kode_jurusan, nama_jurusan, keterangan) values ('TKJ','Teknik Komputer Jaringan','');

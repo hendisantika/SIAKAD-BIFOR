@@ -46,4 +46,9 @@ public class MapelServiceImpl implements MapelService {
         mapelRepository.delete(id);
     }
     
+    @Override
+    public Mapel findByKodeMapel(String kodeMapel) {
+        return mapelRepository.findByKodeMapel(kodeMapel);
+    }
+    
 }

@@ -44,4 +44,8 @@ public class KelasServiceImpl implements KelasService {
         kelasRepository.delete(id);
     }
      
+    @Override
+    public Kelas findByKodeKelas(String kodeKelas) {
+        return kelasRepository.findByKodeKelas(kodeKelas);
+    }
 }

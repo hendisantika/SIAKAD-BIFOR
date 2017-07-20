@@ -17,7 +17,7 @@ $(document).ready (function() {
             { "data": "id",
               "render": function (data, type, full, meta) {
                   return '<a class="btn btn-warning btn-sm" href="/mapel/edit/'+data+'"><i class="fa fa-pencil"></i></a> \n\
-                         <a class="btn btn-danger btn-sm" onclick="javascript:return confirm(\'Anda yakin menghapus jurusan ini ?\');" href="/mapel/delete/'+data+'"><i class="fa fa-trash-o"></i></a>';
+                         <a class="btn btn-danger btn-sm" onclick="javascript:return confirm(\'Anda yakin menghapus mapel ini ?\');" href="/mapel/delete/'+data+'"><i class="fa fa-trash-o"></i></a>';
               }
             }
         ]

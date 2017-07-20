@@ -19,4 +19,6 @@ public interface MapelService {
     Mapel saveMapel(Mapel siswa);
 
     void deleteMapel(Integer id);
+    
+    public Mapel findByKodeMapel (String kodeMapel);
 }

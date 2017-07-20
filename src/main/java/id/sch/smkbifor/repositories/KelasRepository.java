@@ -5,7 +5,6 @@
  */
 package id.sch.smkbifor.repositories;
 
-import id.sch.smkbifor.entities.Jurusan;
 import id.sch.smkbifor.entities.Kelas;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -16,5 +15,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository("kelasRepository")
 public interface KelasRepository extends CrudRepository<Kelas, Integer> {
-    
+    Kelas findByKodeKelas (String kodeKelas); 
 }

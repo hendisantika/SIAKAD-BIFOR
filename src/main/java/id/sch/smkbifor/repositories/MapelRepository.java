@@ -15,5 +15,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository("mapelRepository")
 public interface MapelRepository extends CrudRepository<Mapel, Integer>{
-    
+    Mapel findByKodeMapel (String kodeMapel);   
 }
