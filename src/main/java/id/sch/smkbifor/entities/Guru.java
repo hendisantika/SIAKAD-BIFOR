@@ -7,17 +7,19 @@ package id.sch.smkbifor.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.UUID;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
@@ -54,12 +56,12 @@ public class Guru implements Serializable {
     @Column(name="pendidikan", length=30)
     private String pendidikan;
     
-    @ManyToOne
-    @JoinColumn(name="kode_mapel", nullable=false)
-    private Mapel mapel;
-    
     @Column(name="keterangan")
     private String keterangan;
+    
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(name = "t_guru_mapel", joinColumns = { @JoinColumn(name = "kode_guru") }, inverseJoinColumns = { @JoinColumn(name = "kode_mapel") })
+    private Set<Mapel> mapel = new HashSet<Mapel>(0);
 
     /**
      * @return the id
@@ -188,20 +190,6 @@ public class Guru implements Serializable {
     }
 
     /**
-     * @return the mapel
-     */
-    public Mapel getMapel() {
-        return mapel;
-    }
-
-    /**
-     * @param mapel the mapel to set
-     */
-    public void setMapel(Mapel mapel) {
-        this.mapel = mapel;
-    }
-
-    /**
      * @return the keterangan
      */
     public String getKeterangan() {
@@ -214,4 +202,12 @@ public class Guru implements Serializable {
     public void setKeterangan(String keterangan) {
         this.keterangan = keterangan;
     }
+
+    /**
+     * @param mapel the mapel to set
+     */
+    public void setMapel(Set<Mapel> mapel) {
+        this.mapel = mapel;
+    }
+    
 }

@@ -7,10 +7,34 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
     </head>
     <body>
         <div th:include="fragments/header :: header">
         </div>
-        <div th:include="fragments/footer :: footer">
+        <div id="wrap">
         </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="row-fluid">
+                    <br/>
+                    <div class="pull-left">
+                        <span class="year">&copy; 2009-2017, <a href="http://dekikurnia.com">Deki Kurnia Hadi Permana</a></span>
+                    </div>
+                    <div class="pull-right">
+                        <a class="pull-left mr-5" title="Facebook" href="https://www.facebook.com/dekikantata" target="_blank">
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/popular-social-media-flat/48/Popular_Social_Media-04-32.png" alt="Facebook" width="24" height="24">
+                            </span>
+                        </a>
+                        <a class="pull-left mr-5" title="Instagram" href="https://instagram.com/dekikurnia" target="_blank">
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/popular-social-media-flat/48/Popular_Social_Media-07-128.png" alt="Instagram" width="24" height="24">
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
 </html>

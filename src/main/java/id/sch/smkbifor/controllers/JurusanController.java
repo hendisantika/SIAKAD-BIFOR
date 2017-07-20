@@ -39,7 +39,7 @@ public class JurusanController {
     @RequestMapping("admin/jurusan/new")
     public String newJurusan(Model model) {
         model.addAttribute("jurusan", new Jurusan());
-        return "admin/jurusanform";
+        return "admin/formjurusan";
     }
     
     @RequestMapping(value="jurusan", method=RequestMethod.POST)
@@ -51,7 +51,7 @@ public class JurusanController {
     @RequestMapping("jurusan/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("jurusan", jurusanService.getJurusanById(id));
-        return "admin/jurusanform";
+        return "admin/formjurusan";
     }
     
     @RequestMapping("jurusan/delete/{id}")

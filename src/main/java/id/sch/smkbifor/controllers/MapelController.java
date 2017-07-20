@@ -38,7 +38,7 @@ public class MapelController {
     @RequestMapping("admin/mapel/new")
     public String newMapel(Model model) {
         model.addAttribute("mapel", new Mapel());
-        return "admin/mapelform";
+        return "admin/formmapel";
     }
     
     @RequestMapping(value="mapel", method=RequestMethod.POST)
@@ -50,7 +50,7 @@ public class MapelController {
     @RequestMapping("mapel/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("mapel", mapelService.getMapelById(id));
-        return "admin/mapelform";
+        return "admin/formmapel";
     }
     
     @RequestMapping("mapel/delete/{id}")

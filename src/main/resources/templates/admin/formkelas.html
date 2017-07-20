@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+    <title>Spring Boot Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href=
+        "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    </head>
+    <body>
+        <div th:include="fragments/header :: header">
+            
+        </div>
+        <div id="wrap">
+            <div id="main" class="container clear-top">
+            <h2>Tambah kelas</h2>
+            <br/>
+            <div>
+                <form class="form-horizontal" th:object="${kelas}" th:action="@{/kelas}" method="post">
+                    <input type="hidden" th:field="*{id}"/>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Kode kelas</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" th:field="*{kodeKelas}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Nama kelas</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" th:field="*{namaKelas}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Keterangan</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" th:field="*{keterangan}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label"></label>
+                        <div class="col-xs-5">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="row-fluid">
+                    <br/>
+                    <div class="pull-left">
+                        <span class="year">&copy; 2009-2017, <a href="http://dekikurnia.com">Deki Kurnia Hadi Permana</a></span>
+                    </div>
+                    <div class="pull-right">
+                        <a class="pull-left mr-5" title="Facebook" href="https://www.facebook.com/dekikantata" target="_blank">
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/popular-social-media-flat/48/Popular_Social_Media-04-32.png" alt="Facebook" width="24" height="24">
+                            </span>
+                        </a>
+                        <a class="pull-left mr-5" title="Instagram" href="https://instagram.com/dekikurnia" target="_blank">
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/popular-social-media-flat/48/Popular_Social_Media-07-128.png" alt="Instagram" width="24" height="24">
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

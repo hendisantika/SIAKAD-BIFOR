@@ -7,7 +7,6 @@
  * Author:  dekikurnia
  * Created: 15 Jul 17
 
-
 INSERT INTO t_jurusan (kode_jurusan, nama_jurusan, keterangan) values ('MM','Multimedia','');
 INSERT INTO t_jurusan (kode_jurusan, nama_jurusan, keterangan) values ('RPL','Rekayasa Perangkat Lunak','');
 INSERT INTO t_jurusan (kode_jurusan, nama_jurusan, keterangan) values ('TKJ','Teknik Komputer Jaringan','');
@@ -22,7 +21,7 @@ INSERT INTO t_kelas (kode_kelas, nama_kelas, keterangan) values ('X-MM 7','Sepul
 
 INSERT INTO `t_role` VALUES (1, 'ADMIN');
 
-INSERT INTO t_mapel (kode_mapel, nama_mapel, jumlah_jam, keterangan) values ('MTK 1','Matematika kelas X','4 jam', '');
+INSERT INTO t_mapel (kode_mapel, nama_mapel, jumlah_jam, keterangan) values ('MTK','Matematika','4 jam', '');
 
 INSERT INTO t_siswa  (nisn, nis, nama_siswa, jenis_kelamin, tempat_lahir, 
        tanggal_lahir, kode_jurusan, kode_kelas, agama, anak_ke, nama_orangtua, tahun_diterima, tahun_lulus, aktif) 
@@ -30,7 +29,8 @@ INSERT INTO t_siswa  (nisn, nis, nama_siswa, jenis_kelamin, tempat_lahir,
                     'Nurhadi', '2017', '', true);
 
 INSERT INTO t_guru  (kode_guru, nuptk, nama_guru, jenis_kelamin, tempat_lahir, 
-       tanggal_lahir, kode_mapel, agama, pendidikan, keterangan) 
+       tanggal_lahir, agama, pendidikan, keterangan) 
             values ('36', '001982138283', 'Slamet waluyo', 'Laki-laki', 'Banyuwangi', 
-'1960-06-27', '1', 'Islam', 'S1 pendidikan matematika', '');
- */
+'1960-06-27', 'Islam', 'S1 pendidikan matematika', 'Mengajar matematika kelas 11 dan 12');
+ 
+*/

@@ -38,7 +38,7 @@ public class GuruController {
     @RequestMapping("admin/guru/new")
     public String newGuru(Model model) {
         model.addAttribute("guru", new Guru());
-        return "admin/guruform";
+        return "admin/formguru";
     }
     
     @RequestMapping(value="guru", method=RequestMethod.POST)
@@ -50,7 +50,7 @@ public class GuruController {
     @RequestMapping("guru/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("guru", guruService.getGuruById(id));
-        return "admin/guruform";
+        return "admin/formguru";
     }
     
     @RequestMapping("guru/delete/{id}")

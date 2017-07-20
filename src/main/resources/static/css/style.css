@@ -18,7 +18,7 @@ html, body {
 
 #main {
     overflow:auto;
-    padding-bottom:150px; /* this needs to be bigger than footer height*/
+    padding-bottom:70px; /* this needs to be bigger than footer height*/
 }
 
 .footer {
@@ -33,3 +33,12 @@ html, body {
     margin-right: auto;
 }
 
+div.dataTables_wrapper {
+        width: 1150px;
+        margin: 0 auto;
+    }
+
+h2 {
+    width: 100%;
+    text-align:center;
+}

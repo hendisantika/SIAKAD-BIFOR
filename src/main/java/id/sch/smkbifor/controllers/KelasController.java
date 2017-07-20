@@ -38,7 +38,7 @@ public class KelasController {
     @RequestMapping("admin/kelas/new")
     public String newKelas(Model model) {
         model.addAttribute("kelas", new Kelas());
-        return "admin/kelasform";
+        return "admin/formkelas";
     }
     
     @RequestMapping(value="kelas", method=RequestMethod.POST)
@@ -50,7 +50,7 @@ public class KelasController {
     @RequestMapping("kelas/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("kelas", kelasService.getKelasById(id));
-        return "admin/kelasform";
+        return "admin/formkelas";
     }
     
     @RequestMapping("kelas/delete/{id}")
