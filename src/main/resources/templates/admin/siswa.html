@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+   <head>
+        <meta charset="utf-8" />
+        <title>SIAKAD SMK BIFOR</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.15/js/jquery.dataTables.min.js"></script>
+        <script src="/js/siswa.js"></script>
+        <link rel="stylesheet" href=
+        "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" 
+              href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.15/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    </head>
+    <body>
+        <div th:include="fragments/header :: header">
+        </div>
+        <div id="wrap">
+            <div id="main" class="container clear-top">
+            <h1 align="center">Data Siswa</h1>
+            <p><a th:href="@{/admin/siswa/new}" class="btn btn-primary">Tambah Siswa</a></p>
+            <table id="siswaTable" class=" table table-bordered display nowrap" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>NISN</th>
+                        <th>NIS</th>
+                        <th>Nama Siswa</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Tempat Lahir</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Jurusan</th>
+                        <th>Kelas</th>
+                        <th>Agama</th>
+                        <th>Nama Orang Tua</th>
+                        <th>Tahun Diterima</th>
+                        <th>Tahun Lulus</th>
+                        <th>Aktif</th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="row-fluid">
+                    <br/>
+                    <div class="pull-left">
+                        <span class="year">&copy; 2009-2017, <a href="http://dekikurnia.com">Deki Kurnia Hadi Permana</a></span>
+                    </div>
+                    <div class="pull-right">
+                        <a class="pull-left mr-5" title="Facebook" href="https://www.facebook.com/dekikantata" target="_blank">
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/popular-social-media-flat/48/Popular_Social_Media-04-32.png" alt="Facebook" width="24" height="24">
+                            </span>
+                        </a>
+                        <a class="pull-left mr-5" title="Instagram" href="https://instagram.com/dekikurnia" target="_blank">
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/popular-social-media-flat/48/Popular_Social_Media-07-128.png" alt="Instagram" width="24" height="24">
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

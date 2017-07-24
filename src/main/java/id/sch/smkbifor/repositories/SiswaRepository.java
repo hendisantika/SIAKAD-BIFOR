@@ -6,6 +6,7 @@
 package id.sch.smkbifor.repositories;
 
 import id.sch.smkbifor.entities.Siswa;
+import id.sch.smkbifor.entities.User;
 import java.io.Serializable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -16,5 +17,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository("siswaRepository")
 public interface SiswaRepository extends CrudRepository<Siswa, Integer>{
-    
+
 }

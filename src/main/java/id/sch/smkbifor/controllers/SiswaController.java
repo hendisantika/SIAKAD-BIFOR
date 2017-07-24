@@ -30,33 +30,33 @@ public class SiswaController {
         this.siswaService = siswaService;
     }
     
-    @RequestMapping(path="/siswa", method=RequestMethod.GET)
+    @RequestMapping(path="admin/siswa", method=RequestMethod.GET)
     public String goSiswa(Model model) {
         model.addAttribute("siswa", siswaService.listAllSiswa());
-        return "siswa";
+        return "admin/siswa";
     }
     
-    @RequestMapping("siswa/new")
+    @RequestMapping("admin/siswa/new")
     public String newSiswa(Model model) {
         model.addAttribute("siswa", new Siswa());
-        return "siswaform";
+        return "admin/formsiswa";
     }
     
-    @RequestMapping(value="siswa", method=RequestMethod.POST)
+    @RequestMapping(value="admin/siswa", method=RequestMethod.POST)
     public String saveSiswa(@Valid Siswa siswa, BindingResult bindingResult) {
         siswaService.saveSiswa(siswa);
-        return "redirect:/siswa"; 
+        return "redirect:/admin/siswa"; 
     }
     
-    @RequestMapping("siswa/edit/{id}")
+    @RequestMapping("admin/siswa/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("siswa", siswaService.getSiswaById(id));
-        return "siswaform";
+        return "admin/formsiswa";
     }
     
-    @RequestMapping("siswa/delete/{id}")
+    @RequestMapping("admin/siswa/delete/{id}")
     public String delete(@PathVariable Integer id) {
         siswaService.deleteSiswa(id);
-        return "redirect:/siswa";
+        return "redirect:/admin/siswa";
     }
 }
