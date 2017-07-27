@@ -6,6 +6,10 @@
 
 $(document).ready (function() {
     var table = $('#kelasTable').DataTable({
+        dom: 'Blfrtip',
+        buttons: [
+            'excel', 'pdf'
+        ],
         "sAjaxSource": "/api/kelas",
         "sAjaxDataProp": "",
         "order": [[ 0, "asc" ]],

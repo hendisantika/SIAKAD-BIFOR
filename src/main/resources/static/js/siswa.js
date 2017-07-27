@@ -27,9 +27,10 @@ $(document).ready (function() {
             { "data": "kelas.kodeKelas" },
             { "data": "agama" },
             { "data": "namaOrangTua" },
+            { "data": "anakKe" },
             { "data": "tahunDiterima" },
             { "data": "tahunLulus" },
-            { "data": "aktif" },
+            { "data": "status" },
             { "data": "id",
               "render": function (data, type, full, meta) {
                   return '<a class="btn btn-warning btn-sm" href="/siswa/edit/'+data+'"><i class="fa fa-pencil"></i></a> \n\

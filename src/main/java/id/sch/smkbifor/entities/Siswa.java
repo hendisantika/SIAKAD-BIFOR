@@ -18,6 +18,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -31,22 +33,27 @@ public class Siswa implements Serializable {
     private Integer id;
     
     @Column(unique=true, name="nisn", length=30)
+    @NotEmpty(message = "NISN tidak boleh kosong")
     private String nisn;
     
     @Column(unique=true, name="nis", length=30)
+    @NotEmpty(message = "NIS tidak boleh kosong")
     private String nis;
     
     @Column(name="nama_siswa", length=100)
+    @NotEmpty(message = "Nama siswa tidak boleh kosong")
     private String namaSiswa;
     
     @Column(name="jenis_kelamin", length=20)
     private String jenisKelamin;
     
     @Column(name="tempat_lahir", length=30)
+    @NotEmpty(message = "Tempat lahir tidak boleh kosong")
     private String tempatLahir;
     
     @Column(name="tanggal_lahir")
     @Temporal(javax.persistence.TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date tanggalLahir;
     
     @ManyToOne
@@ -58,22 +65,26 @@ public class Siswa implements Serializable {
     private Kelas kelas;
     
     @Column(name="agama", length=15)
+    @NotEmpty(message = "Agama tidak boleh kosong")
     private String agama;
     
     @Column(name="anak_ke", length=50)
+    @NotEmpty(message = "Anak ke- tidak boleh kosong")
     private String anakKe;
     
     @Column(name="nama_orangtua", length=100)
+    @NotEmpty(message = "Nama orang tua tidak boleh kosong")
     private String namaOrangTua;
     
     @Column(name="tahun_diterima", length=4)
+    @NotEmpty(message = "Tahun diterima tidak boleh kosong")
     private String tahunDiterima;
     
     @Column(name="tahun_lulus", length=4)
     private String tahunLulus;
     
-    @Column(name="aktif")
-    private boolean aktif;
+    @Column(name="status")
+    private String status;
 
     /**
      * @return the id
@@ -272,17 +283,17 @@ public class Siswa implements Serializable {
     }
 
     /**
-     * @return the aktif
+     * @return the status
      */
-    public boolean isAktif() {
-        return aktif;
+    public String getStatus() {
+        return status;
     }
 
     /**
-     * @param aktif the aktif to set
+     * @param status the status to set
      */
-    public void setAktif(boolean aktif) {
-        this.aktif = aktif;
+    public void setStatus(String status) {
+        this.status = status;
     }
     
 }

@@ -21,4 +21,6 @@ public interface SiswaService {
 
     void deleteSiswa(Integer id);
     
+    public Siswa findByNisn (String nisn);
+    
 }

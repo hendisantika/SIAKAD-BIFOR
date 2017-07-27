@@ -25,9 +25,9 @@ INSERT INTO `t_role` VALUES (1, 'ADMIN');
 INSERT INTO t_mapel (kode_mapel, nama_mapel, jumlah_jam, keterangan) values ('MTK','Matematika','4 jam', '');
 
 INSERT INTO t_siswa  (nisn, nis, nama_siswa, jenis_kelamin, tempat_lahir, 
-       tanggal_lahir, kode_jurusan, kode_kelas, agama, anak_ke, nama_orangtua, tahun_diterima, tahun_lulus, aktif) 
+       tanggal_lahir, kode_jurusan, kode_kelas, agama, anak_ke, nama_orangtua, tahun_diterima, tahun_lulus, status) 
             values ('9936732451', '02041790365', 'Deki kurnia', 'Laki-laki', 'Bogor', '1992-06-27', '1', '1', 'Islam', '3 dari 3 bersaudara',
-                    'Nurhadi', '2017', '', true);
+                    'Nurhadi', '2017', '', 'Aktif');
 
 INSERT INTO t_guru  (kode_guru, nuptk, nama_guru, jenis_kelamin, tempat_lahir, 
        tanggal_lahir, agama, pendidikan, keterangan) 

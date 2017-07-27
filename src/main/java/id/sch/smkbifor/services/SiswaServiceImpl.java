@@ -44,4 +44,9 @@ public class SiswaServiceImpl implements SiswaService{
     public void deleteSiswa(Integer id) {
         siswaRepository.delete(id);
     }
+    
+    @Override
+    public Siswa findByNisn(String nisn) {
+        return siswaRepository.findByNisn(nisn);
+    }
 }

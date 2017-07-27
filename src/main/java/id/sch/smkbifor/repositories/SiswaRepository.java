@@ -17,5 +17,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository("siswaRepository")
 public interface SiswaRepository extends CrudRepository<Siswa, Integer>{
-
+    Siswa findByNisn (String nisn); 
 }

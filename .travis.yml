@@ -1,0 +1,14 @@
+language: java
+
+jdk:
+    - oraclejdk8
+
+services:
+    - mysql
+
+before_install: 
+    - mysql -uroot -e "grant all on smkbifor.* to smkbifor@localhost identified by 'root'"
+    - mysql -uroot -e "drop database if exists smkbifor"
+    - mysql -uroot -e "create database smkbifor"
+
+ 

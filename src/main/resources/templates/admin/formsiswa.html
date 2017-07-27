@@ -4,6 +4,12 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
     <title>SIAKAD SMK BIFOR</title>
@@ -21,39 +27,49 @@ and open the template in the editor.
         </div>
         <div id="wrap">
             <div id="main" class="container clear-top">
-            <h2>Tambah guru</h2>
+            <h2>Tambah siswa</h2>
             <br/>
-                <form class="form-horizontal" th:object="${guru}" th:action="@{/guru}" method="post">
+                <form class="form-horizontal" th:object="${siswa}" th:action="@{/siswa}" method="post">
                     <input type="hidden" th:field="*{id}"/>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Kode Guru </label>
+                        <label class="col-sm-4 control-label">NISN</label>
                         <div class="col-xs-5">
-                            <input type="text" class="form-control" th:field="*{kodeGuru}"/>
+                            <input type="text" class="form-control" th:field="*{nisn}"/>
+                            <label th:if="${#fields.hasErrors('nisn')}" th:errors="*{nisn}"
+								class="validation-message"></label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">NUPTK</label>
+                        <label class="col-sm-4 control-label">NIS</label>
                         <div class="col-xs-5">
-                            <input type="text" class="form-control" th:field="*{nuptk}"/>
+                            <input type="text" class="form-control" th:field="*{nis}"/>
+                            <label th:if="${#fields.hasErrors('nis')}" th:errors="*{nis}"
+								class="validation-message"></label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Nama Guru</label>
+                        <label class="col-sm-4 control-label">Nama Siswa</label>
                         <div class="col-xs-5">
-                            <input type="text" class="form-control" th:field="*{namaGuru}"/>
+                            <input type="text" class="form-control" th:field="*{namaSiswa}"/>
+                            <label th:if="${#fields.hasErrors('namaSiswa')}" th:errors="*{namaSiswa}"
+								class="validation-message"></label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Jenis Kelamin</label>
                         <div class="col-xs-5">
-                            <label class="radio-inline"><input type="radio" name="optradio" th:field="*{jenisKelamin}" value="Laki-laki">Laki-laki</label>
-                            <label class="radio-inline"><input type="radio" name="optradio" th:field="*{jenisKelamin}" value="Perempuan">Perempuan</label>
+                            <label class="radio-inline">
+                                <input type="radio" name="optradio" th:field="*{jenisKelamin}" value="Laki-laki">Laki-laki</label>
+                            <label class="radio-inline">
+                                <input type="radio" name="optradio" th:field="*{jenisKelamin}" value="Perempuan">Perempuan</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Tempat Lahir</label>
                         <div class="col-xs-5">
                             <input type="text" class="form-control" th:field="*{tempatLahir}"/>
+                            <label th:if="${#fields.hasErrors('tempatLahir')}" th:errors="*{tempatLahir}"
+								class="validation-message"></label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -63,6 +79,30 @@ and open the template in the editor.
                             <input class="form-control" type="text" name="tgl_regis" th:field="*{tanggalLahir}">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                         </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Jurusan</label>
+                        <div class="col-xs-5">
+                            <div class="selectContainer">
+                                <select class="form-control" name="size" th:field="*{jurusan}">
+                                    <option th:each="dropDownItem : ${listJurusan}"
+                                            th:value="${dropDownItem.id}"
+                                            th:text="${dropDownItem.namaJurusan}" />
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Kelas</label>
+                        <div class="col-xs-5">
+                            <div class="selectContainer">
+                                <select class="form-control" name="size" th:field="*{kelas}">
+                                    <option th:each="dropDownItem : ${listKelas}"
+                                            th:value="${dropDownItem.id}"
+                                            th:text="${dropDownItem.kodeKelas}" />
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -81,15 +121,40 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Pendidikan</label>
+                        <label class="col-sm-4 control-label">Nama Orang Tua</label>
                         <div class="col-xs-5">
-                            <input type="text" class="form-control" th:field="*{pendidikan}"/>
+                            <input type="text" class="form-control" th:field="*{namaOrangTua}"/>
+                            <label th:if="${#fields.hasErrors('namaOrangTua')}" th:errors="*{namaOrangTua}"
+								class="validation-message"></label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Keterangan</label>
+                        <label class="col-sm-4 control-label">Anak Ke</label>
                         <div class="col-xs-5">
-                            <input type="text" class="form-control" th:field="*{keterangan}"/>
+                            <input type="text" class="form-control" th:field="*{anakKe}"/>
+                            <label th:if="${#fields.hasErrors('anakKe')}" th:errors="*{anakKe}"
+								class="validation-message"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Tahun Diterima</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" th:field="*{tahunDiterima}"/>
+                            <label th:if="${#fields.hasErrors('tahunDiterima')}" th:errors="*{tahunDiterima}"
+								class="validation-message"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Tahun Lulus</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" th:field="*{tahunLulus}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Status</label>
+                        <div class="col-xs-5">
+                            <label class="radio-inline"><input type="radio" name="optradio" th:field="*{status}" value="Aktif">Aktif</label>
+                            <label class="radio-inline"><input type="radio" name="optradio" th:field="*{status}" value="Tidak Aktif">Tidak Aktif</label>
                         </div>
                     </div>
                     <div class="form-group">
