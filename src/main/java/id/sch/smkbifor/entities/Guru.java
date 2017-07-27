@@ -5,6 +5,7 @@
  */
 package id.sch.smkbifor.entities;
 
+import com.google.gson.Gson;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
@@ -32,7 +33,7 @@ public class Guru implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     
-    @Column(name="kode_guru", length=3)
+    @Column(name="kode_guru", length=3, unique=true)
     private String kodeGuru;
     
     @Column(name="nuptk", length=20)
@@ -64,7 +65,7 @@ public class Guru implements Serializable {
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "t_guru_mapel", joinColumns = { @JoinColumn(name = "kode_guru") 
     }, inverseJoinColumns = { @JoinColumn(name = "kode_mapel") })
-    private Set<Mapel> mapel = new HashSet<Mapel>(0);
+    private Set<Mapel> mapel;
 
     /**
      * @return the id
@@ -209,8 +210,17 @@ public class Guru implements Serializable {
     /**
      * @param mapel the mapel to set
      */
+    
+    
     public void setMapel(Set<Mapel> mapel) {
         this.mapel = mapel;
+    }
+
+    /**
+     * @return the mapel
+     */
+    public Set<Mapel> getMapel() {
+        return mapel;
     }
     
 }

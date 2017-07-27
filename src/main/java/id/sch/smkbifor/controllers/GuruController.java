@@ -7,6 +7,7 @@ package id.sch.smkbifor.controllers;
 
 import id.sch.smkbifor.entities.Guru;
 import id.sch.smkbifor.services.GuruService;
+import id.sch.smkbifor.services.MapelService;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,10 +24,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class GuruController {
     private GuruService guruService;
+    private MapelService mapelService;
 
     @Autowired
     public void setGuruService(GuruService guruService) {
         this.guruService = guruService;
+    }
+    
+    @Autowired
+    public void setMapelService(MapelService mapelService) {
+        this.mapelService = mapelService;
     }
     
     @RequestMapping(path="/admin/guru", method=RequestMethod.GET)
@@ -38,13 +45,19 @@ public class GuruController {
     @RequestMapping("admin/guru/new")
     public String newGuru(Model model) {
         model.addAttribute("guru", new Guru());
+        model.addAttribute("listMapel", mapelService.listAllMapel());
         return "admin/formguru";
     }
     
     @RequestMapping(value="guru", method=RequestMethod.POST)
-    public String saveGuru(@Valid Guru guru, BindingResult bindingResult) {
+    public String saveGuru(@Valid Guru guru, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("listMapel", mapelService.listAllMapel());
+            return "admin/formsiswa";
+        } else {
         guruService.saveGuru(guru);
-        return "redirect:/admin/guru"; 
+        return "redirect:/admin/guru";
+        }
     }
     
     @RequestMapping("guru/edit/{id}")

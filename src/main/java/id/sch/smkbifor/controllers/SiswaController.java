@@ -60,14 +60,6 @@ public class SiswaController {
     
     @RequestMapping(value="siswa", method=RequestMethod.POST)
     public String saveSiswa(@Valid Siswa siswa, BindingResult bindingResult, Model model) {
-        Siswa siswaExists = siswaService.findByNisn(siswa.getNisn());
-        if (siswaExists != null) {
-            model.addAttribute("listJurusan", jurusanService.listAllJurusan());
-            model.addAttribute("listKelas", kelasService.listAllKelas());
-            bindingResult
-                    .rejectValue("nisn", "error.siswa",
-                            "Sudah ada data dengan NISN tersebut");
-        }
         if (bindingResult.hasErrors()) {
             model.addAttribute("listJurusan", jurusanService.listAllJurusan());
             model.addAttribute("listKelas", kelasService.listAllKelas());

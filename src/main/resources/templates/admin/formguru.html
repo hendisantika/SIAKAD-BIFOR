@@ -87,6 +87,18 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-sm-4 control-label">Mengajar</label>
+                        <div class="col-xs-5">
+                            <div class="selectContainer">
+                                <select class="form-control" name="size" th:field="*{mapel}">
+                                    <option th:each="dropDownItem : ${listMapel}"
+                                            th:value="${dropDownItem.id}"
+                                            th:text="${dropDownItem.namaMapel}" />
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-4 control-label">Keterangan</label>
                         <div class="col-xs-5">
                             <input type="text" class="form-control" th:field="*{keterangan}"/>

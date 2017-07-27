@@ -44,12 +44,6 @@ public class MapelController {
     
     @RequestMapping(value="mapel", method=RequestMethod.POST)
     public String saveMapel(@Valid Mapel mapel, BindingResult bindingResult) {
-        Mapel mapelExists = mapelService.findByKodeMapel(mapel.getKodeMapel());
-        if (mapelExists != null) {
-            bindingResult
-                    .rejectValue("kodeMapel", "error.mapel",
-                            "Sudah ada data dengan kode mapel tersebut");
-        }
         if (bindingResult.hasErrors()) {
             return "admin/formmapel";
         } else {

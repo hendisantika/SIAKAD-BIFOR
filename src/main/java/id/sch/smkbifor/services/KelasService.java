@@ -16,7 +16,7 @@ public interface KelasService {
 
     public Kelas getKelasById(Integer id);
 
-    Kelas saveKelas(Kelas jurusan);
+    Kelas saveKelas(Kelas kelas);
 
     void deleteKelas(Integer id);
     
