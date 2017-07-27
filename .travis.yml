@@ -7,6 +7,6 @@ services:
     - mysql
 
 before_install: 
-    - mysql -uroot -e "grant all privileges on root.* to root@localhost identified by 'madrasah257'
+    - mysql -uroot -e "grant all privileges on root.* to root@localhost identified by 'madrasah257'"
     - mysql -uroot -e "drop database if exists smkbifor"
     - mysql -uroot -e "create database smkbifor"
