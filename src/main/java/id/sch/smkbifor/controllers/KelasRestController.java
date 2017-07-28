@@ -7,6 +7,8 @@ package id.sch.smkbifor.controllers;
 
 import id.sch.smkbifor.entities.Kelas;
 import id.sch.smkbifor.services.KelasService;
+import java.util.Collection;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +25,7 @@ public class KelasRestController {
     private KelasService kelasService;
     
     @RequestMapping(path="/api/kelas", method=RequestMethod.GET)
-    public Iterable <Kelas> listAllKelas() {
+    public Collection <Kelas> listAllKelas() {
         return kelasService.listAllKelas();
     }
     

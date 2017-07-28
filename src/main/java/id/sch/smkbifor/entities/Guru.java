@@ -5,8 +5,10 @@
  */
 package id.sch.smkbifor.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.google.gson.Gson;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -21,6 +23,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
@@ -34,18 +37,21 @@ public class Guru implements Serializable {
     private Integer id;
     
     @Column(name="kode_guru", length=3, unique=true)
+    @NotEmpty(message = "Kode guru tidak boleh kosong")
     private String kodeGuru;
     
     @Column(name="nuptk", length=20)
     private String nuptk;
     
     @Column(name="nama_guru", length=100)
+    @NotEmpty(message = "Nama guru tidak boleh kosong")
     private String namaGuru;
     
     @Column(name="jenis_kelamin", length=20)
     private String jenisKelamin;
     
     @Column(name="tempat_lahir", length=30)
+    @NotEmpty(message = "Tempat lahir tidak boleh kosong")
     private String tempatLahir;
     
     @Column(name="tanggal_lahir")
@@ -57,16 +63,17 @@ public class Guru implements Serializable {
     private String agama;
     
     @Column(name="pendidikan", length=30)
+    @NotEmpty(message = "Pendidikan tidak boleh kosong")
     private String pendidikan;
     
     @Column(name="keterangan")
     private String keterangan;
     
     @ManyToMany(cascade = CascadeType.MERGE)
+    @JsonBackReference
     @JoinTable(name = "t_guru_mapel", joinColumns = { @JoinColumn(name = "kode_guru") 
     }, inverseJoinColumns = { @JoinColumn(name = "kode_mapel") })
-    private Set<Mapel> mapel;
-
+    private Set<Mapel> mapel = new HashSet<Mapel>();
     /**
      * @return the id
      */

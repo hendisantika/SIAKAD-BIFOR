@@ -7,6 +7,7 @@ package id.sch.smkbifor.controllers;
 
 import id.sch.smkbifor.entities.Mapel;
 import id.sch.smkbifor.services.MapelService;
+import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,7 @@ public class MapelRestController {
     private MapelService mapelService;
     
     @RequestMapping(path="/api/mapel", method=RequestMethod.GET)
-    public Iterable <Mapel> listAllMapel() {
+    public Collection <Mapel> listAllMapel() {
         return mapelService.listAllMapel();
     }
     

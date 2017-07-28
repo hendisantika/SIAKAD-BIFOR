@@ -6,6 +6,8 @@
 package id.sch.smkbifor.repositories;
 
 import id.sch.smkbifor.entities.Kelas;
+import java.util.Collection;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,5 +17,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository("kelasRepository")
 public interface KelasRepository extends CrudRepository<Kelas, Integer> {
-    Kelas findByKodeKelas (String kodeKelas); 
+    Kelas findByKodeKelas (String kodeKelas);
+    @Override
+    Collection<Kelas> findAll();
 }

@@ -8,6 +8,7 @@ package id.sch.smkbifor.services;
 import id.sch.smkbifor.entities.Guru;
 import id.sch.smkbifor.entities.Guru;
 import id.sch.smkbifor.repositories.GuruRepository;
+import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +27,7 @@ public class GuruServiceImpl implements GuruService {
     }
 
     @Override
-    public Iterable<Guru> listAllGuru() {
+    public Collection<Guru> listAllGuru() {
         return guruRepository.findAll();
     }
 
@@ -41,8 +42,18 @@ public class GuruServiceImpl implements GuruService {
     }
 
     @Override
+    public Guru updateGuru(Guru guru) {
+        return guruRepository.save(guru);
+    }
+    
+    @Override
     public void deleteGuru(Integer id) {
         guruRepository.delete(id);
+    }
+    
+    @Override
+    public Guru findByKodeGuru(String kodeGuru) {
+        return guruRepository.findByKodeGuru(kodeGuru);
     }
     
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -22,6 +22,7 @@ INSERT INTO t_kelas (kode_kelas, nama_kelas, keterangan) values ('X-MM 7','Sepul
 
 INSERT INTO `t_role` VALUES (1, 'ADMIN');
 
+
 INSERT INTO t_mapel (kode_mapel, nama_mapel, jumlah_jam, keterangan) values ('MTK','Matematika','4 jam', '');
 
 INSERT INTO t_siswa  (nisn, nis, nama_siswa, jenis_kelamin, tempat_lahir, 
@@ -33,5 +34,4 @@ INSERT INTO t_guru  (kode_guru, nuptk, nama_guru, jenis_kelamin, tempat_lahir,
        tanggal_lahir, agama, pendidikan, keterangan) 
             values ('36', '001982138283', 'Slamet waluyo', 'Laki-laki', 'Banyuwangi', 
 '1960-06-27', 'Islam', 'S1 pendidikan matematika', 'Mengajar matematika kelas 11 dan 12');
- 
-*/
+ */

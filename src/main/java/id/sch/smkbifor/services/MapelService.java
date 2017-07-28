@@ -6,13 +6,14 @@
 package id.sch.smkbifor.services;
 
 import id.sch.smkbifor.entities.Mapel;
+import java.util.Collection;
 
 /**
  *
  * @author server02
  */
 public interface MapelService {
-    Iterable<Mapel> listAllMapel();
+    Collection<Mapel> listAllMapel();
 
     Mapel getMapelById(Integer id);
 

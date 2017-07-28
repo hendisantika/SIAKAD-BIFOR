@@ -30,38 +30,38 @@ public class MapelController {
         this.mapelService = mapelService;
     }
     
-    @RequestMapping(path="/admin/mapel", method=RequestMethod.GET)
+    @RequestMapping(path="/admin/mapel/index", method=RequestMethod.GET)
     public String goMapel(Model model) {
         model.addAttribute("mapel", mapelService.listAllMapel());
-        return "admin/mapel";
+        return "admin/mapel/index";
     }
     
     @RequestMapping("admin/mapel/new")
     public String newMapel(Model model) {
         model.addAttribute("mapel", new Mapel());
-        return "admin/formmapel";
+        return "admin/mapel/formmapel";
     }
     
     @RequestMapping(value="mapel", method=RequestMethod.POST)
     public String saveMapel(@Valid Mapel mapel, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "admin/formmapel";
+            return "admin/mapel/formmapel";
         } else {
         mapelService.saveMapel(mapel);
-        return "redirect:/admin/mapel";
+        return "redirect:/admin/mapel/index";
         }
     }
     
-    @RequestMapping("mapel/edit/{id}")
+    @RequestMapping("admin/mapel/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("mapel", mapelService.getMapelById(id));
-        return "admin/formmapel";
+        return "admin/mapel/formmapel";
     }
     
-    @RequestMapping("mapel/delete/{id}")
+    @RequestMapping("admin/mapel/delete/{id}")
     public String delete(@PathVariable Integer id) {
         mapelService.deleteMapel(id);
-        return "redirect:/admin/mapel";
+        return "redirect:/admin/mapel/index";
     }
     
 }

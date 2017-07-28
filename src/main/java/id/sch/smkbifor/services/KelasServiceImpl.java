@@ -7,6 +7,8 @@ package id.sch.smkbifor.services;
 
 import id.sch.smkbifor.entities.Kelas;
 import id.sch.smkbifor.repositories.KelasRepository;
+import java.util.Collection;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +27,7 @@ public class KelasServiceImpl implements KelasService {
     }
 
     @Override
-    public Iterable<Kelas> listAllKelas() {
+    public Collection<Kelas> listAllKelas() {
         return kelasRepository.findAll();
     }
 
@@ -39,6 +41,11 @@ public class KelasServiceImpl implements KelasService {
         return kelasRepository.save(kelas);
     }
 
+    @Override
+    public Kelas updateKelas(Kelas kelas) {
+        return kelasRepository.save(kelas);
+    }
+    
     @Override
     public void deleteKelas(Integer id) {
         kelasRepository.delete(id);

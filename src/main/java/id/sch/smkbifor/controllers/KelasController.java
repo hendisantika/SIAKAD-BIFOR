@@ -29,38 +29,54 @@ public class KelasController {
         this.kelasService = kelasService;
     }
     
-    @RequestMapping(path="/admin/kelas", method=RequestMethod.GET)
+    @RequestMapping(path="/admin/kelas/index", method=RequestMethod.GET)
     public String goKelas(Model model) {
         model.addAttribute("kelas", kelasService.listAllKelas());
-        return "admin/kelas";
+        return "admin/kelas/index";
     }
     
     @RequestMapping("admin/kelas/new")
     public String newKelas(Model model) {
         model.addAttribute("kelas", new Kelas());
-        return "admin/formkelas";
+        return "admin/kelas/formkelas";
     }
     
     @RequestMapping(value="kelas", method=RequestMethod.POST)
-    public String saveKelas(@Valid Kelas kelas, BindingResult bindingResult) {
+    public String saveKelas(@Valid Kelas kelas, BindingResult bindingResult, Model model) {
+        Kelas kelasExists = kelasService.findByKodeKelas(kelas.getKodeKelas());
+        if (kelasExists != null) {
+            bindingResult
+                    .rejectValue("kodeKelas", "error.kelas",
+                            "Sudah ada data dengan kode kelas tersebut");
+        }
         if (bindingResult.hasErrors()) {
-            return "admin/formkelas";
+            return "admin/kelas/formkelas";
         } else {
         kelasService.saveKelas(kelas);
-        return "redirect:/admin/kelas";
+        return "redirect:/admin/kelas/index";
         } 
     }
     
-    @RequestMapping("kelas/edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
-        model.addAttribute("kelas", kelasService.getKelasById(id));
-        return "admin/formkelas";
+    @RequestMapping(value="kelas", method = {RequestMethod.GET, RequestMethod.PUT})
+    public String updateKelas(@Valid Kelas kelas, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "admin/kelas/updatekelas";
+        } else {
+        kelasService.saveKelas(kelas);
+        return "redirect:/admin/kelas/index";
+        } 
     }
     
-    @RequestMapping("kelas/delete/{id}")
+    @RequestMapping("admin/kelas/edit/{id}")
+    public String edit(@PathVariable Integer id, Model model) {
+        model.addAttribute("kelas", kelasService.getKelasById(id));
+        return "admin/kelas/updatekelas";
+    }
+    
+    @RequestMapping("admin/kelas/delete/{id}")
     public String delete(@PathVariable Integer id) {
         kelasService.deleteKelas(id);
-        return "redirect:/admin/kelas";
+        return "redirect:/admin/kelas/index";
     }
     
 }

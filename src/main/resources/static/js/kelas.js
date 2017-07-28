@@ -19,8 +19,8 @@ $(document).ready (function() {
             { "data": "keterangan" },
             { "data": "id",
               "render": function (data, type, full, meta) {
-                  return '<a class="btn btn-warning btn-sm" href="/kelas/edit/'+data+'"><i class="fa fa-pencil"></i></a> \n\
-                         <a class="btn btn-danger btn-sm" onclick="javascript:return confirm(\'Anda yakin menghapus jurusan ini ?\');" href="/kelas/delete/'+data+'"><i class="fa fa-trash-o"></i></a>';
+                  return '<a class="btn btn-warning btn-sm" href="/admin/kelas/edit/'+data+'"><i class="fa fa-pencil"></i></a> \n\
+                         <a class="btn btn-danger btn-sm" onclick="javascript:return confirm(\'Anda yakin menghapus jurusan ini ?\');" href="/admin/kelas/delete/'+data+'"><i class="fa fa-trash-o"></i></a>';
               }
             }
         ]

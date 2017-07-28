@@ -36,40 +36,58 @@ public class GuruController {
         this.mapelService = mapelService;
     }
     
-    @RequestMapping(path="/admin/guru", method=RequestMethod.GET)
+    @RequestMapping(path="/admin/guru/index", method=RequestMethod.GET)
     public String goGuru(Model model) {
         model.addAttribute("guru", guruService.listAllGuru());
-        return "admin/guru";
+        return "admin/guru/index";
     }
     
     @RequestMapping("admin/guru/new")
     public String newGuru(Model model) {
         model.addAttribute("guru", new Guru());
         model.addAttribute("listMapel", mapelService.listAllMapel());
-        return "admin/formguru";
+        return "admin/guru/formguru";
     }
     
     @RequestMapping(value="guru", method=RequestMethod.POST)
     public String saveGuru(@Valid Guru guru, BindingResult bindingResult, Model model) {
+        Guru guruExists = guruService.findByKodeGuru(guru.getKodeGuru());
+        if (guruExists != null) {
+            model.addAttribute("listMapel", mapelService.listAllMapel());
+            bindingResult
+                    .rejectValue("kodeGuru", "error.guru",
+                            "Sudah ada data dengan kode tersebut");
+        }
         if (bindingResult.hasErrors()) {
             model.addAttribute("listMapel", mapelService.listAllMapel());
-            return "admin/formsiswa";
+            return "admin/guru/formguru";
         } else {
-        guruService.saveGuru(guru);
-        return "redirect:/admin/guru";
+            guruService.saveGuru(guru);
+            return "redirect:/admin/guru/index";
         }
     }
     
-    @RequestMapping("guru/edit/{id}")
+    @RequestMapping(value="guru", method=RequestMethod.PUT)
+    public String updateGuru(@Valid Guru guru, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("listMapel", mapelService.listAllMapel());
+            return "admin/guru/updateguru";
+        } else {
+            guruService.saveGuru(guru);
+            return "redirect:/admin/guru/index";
+        }
+    }
+    @RequestMapping("admin/guru/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("guru", guruService.getGuruById(id));
-        return "admin/formguru";
+        model.addAttribute("listMapel", mapelService.listAllMapel());
+        return "admin/guru/updateguru";
     }
     
-    @RequestMapping("guru/delete/{id}")
+    @RequestMapping("admin/guru/delete/{id}")
     public String delete(@PathVariable Integer id) {
         guruService.deleteGuru(id);
-        return "redirect:/admin/guru";
+        return "redirect:/admin/guru/index";
     }
     
 }

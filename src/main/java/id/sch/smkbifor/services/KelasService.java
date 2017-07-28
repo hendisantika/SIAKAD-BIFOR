@@ -6,17 +6,21 @@
 package id.sch.smkbifor.services;
 
 import id.sch.smkbifor.entities.Kelas;
+import java.util.Collection;
+import java.util.List;
 
 /**
  *
  * @author server02
  */
 public interface KelasService {
-    Iterable<Kelas> listAllKelas();
+    Collection<Kelas> listAllKelas();
 
     public Kelas getKelasById(Integer id);
 
     Kelas saveKelas(Kelas kelas);
+    
+    Kelas updateKelas(Kelas kelas);
 
     void deleteKelas(Integer id);
     

@@ -7,7 +7,9 @@ package id.sch.smkbifor.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -40,7 +42,7 @@ public class Kelas implements Serializable {
     private String keterangan;
     
     @OneToMany(mappedBy="kelas")
-    private List<Siswa> dataSiswa = new ArrayList<>();
+    private Set<Siswa> dataSiswa = new HashSet<Siswa>();
 
     public Integer getId() {
         return id;
@@ -91,22 +93,12 @@ public class Kelas implements Serializable {
     public void setKeterangan(String keterangan) {
         this.keterangan = keterangan;
     }
-
-    /**
-     * @return the dataSiswa
-     */
     
-    /*
-    public List<Siswa> getDataSiswa() {
-        return dataSiswa;
-    }
-    */
-
     /**
      * @param dataSiswa the dataSiswa to set
      */
-    public void setDataSiswa(List<Siswa> dataSiswa) {
+    public void setDataSiswa(Set<Siswa> dataSiswa) {
         this.dataSiswa = dataSiswa;
     }
-    
+
 }

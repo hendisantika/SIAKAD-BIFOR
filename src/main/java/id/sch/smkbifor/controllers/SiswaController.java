@@ -44,10 +44,10 @@ public class SiswaController {
         this.kelasService = kelasService;
     }
     
-    @RequestMapping(path="/admin/siswa", method=RequestMethod.GET)
+    @RequestMapping(path="/admin/siswa/index", method=RequestMethod.GET)
     public String goSiswa(Model model) {
         model.addAttribute("siswa", siswaService.listAllSiswa());   
-        return "admin/siswa";
+        return "admin/siswa/index";
     }
     
     @RequestMapping("admin/siswa/new")
@@ -55,32 +55,40 @@ public class SiswaController {
         model.addAttribute("siswa", new Siswa());
         model.addAttribute("listJurusan", jurusanService.listAllJurusan());
         model.addAttribute("listKelas", kelasService.listAllKelas());
-        return "admin/formsiswa";
+        return "admin/siswa/formsiswa";
     }
     
     @RequestMapping(value="siswa", method=RequestMethod.POST)
     public String saveSiswa(@Valid Siswa siswa, BindingResult bindingResult, Model model) {
+        Siswa siswaExists = siswaService.findByNisn(siswa.getNisn());
+        if (siswaExists != null) {
+            model.addAttribute("listJurusan", jurusanService.listAllJurusan());
+            model.addAttribute("listKelas", kelasService.listAllKelas());
+            bindingResult
+                    .rejectValue("nisn", "error.siswa",
+                            "Sudah ada data dengan NISN tersebut");
+        }
         if (bindingResult.hasErrors()) {
             model.addAttribute("listJurusan", jurusanService.listAllJurusan());
             model.addAttribute("listKelas", kelasService.listAllKelas());
-            return "admin/formsiswa";
+            return "admin/siswa/formsiswa";
         } else {
         siswaService.saveSiswa(siswa);
-        return "redirect:/admin/siswa";
+        return "redirect:/admin/siswa/index";
         }  
     }
     
-    @RequestMapping("siswa/edit/{id}")
+    @RequestMapping("admin/siswa/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("siswa", siswaService.getSiswaById(id));
         model.addAttribute("listJurusan", jurusanService.listAllJurusan());
         model.addAttribute("listKelas", kelasService.listAllKelas());
-        return "admin/formsiswa";
+        return "admin/siswa/formsiswa";
     }
     
-    @RequestMapping("siswa/delete/{id}")
+    @RequestMapping("admin/siswa/delete/{id}")
     public String delete(@PathVariable Integer id) {
         siswaService.deleteSiswa(id);
-        return "redirect:/admin/siswa";
+        return "redirect:/admin/siswa/index";
     }
 }

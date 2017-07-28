@@ -5,6 +5,7 @@
  */
 package id.sch.smkbifor.entities;
 
+import com.google.gson.Gson;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -44,6 +45,7 @@ public class Mapel implements Serializable {
     
     @ManyToMany(mappedBy="mapel", cascade = CascadeType.ALL)
     private Set<Guru> guru;
+   
 
     /**
      * @return the id
@@ -116,17 +118,17 @@ public class Mapel implements Serializable {
     }
 
     /**
-     * @return the guru
-     */
-    public Set<Guru> getGuru() {
-        return guru;
-    }
-
-    /**
      * @param guru the guru to set
      */
     public void setGuru(Set<Guru> guru) {
         this.guru = guru;
+    }
+
+    /**
+     * @return the guru
+     */
+    public Set<Guru> getGuru() {
+        return guru;
     }
         
 }

@@ -9,6 +9,7 @@ import id.sch.smkbifor.entities.Mapel;
 import id.sch.smkbifor.entities.Mapel;
 import id.sch.smkbifor.repositories.MapelRepository;
 import id.sch.smkbifor.repositories.MapelRepository;
+import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,8 +28,8 @@ public class MapelServiceImpl implements MapelService {
     }
 
     @Override
-    public Iterable<Mapel> listAllMapel() {
-        return mapelRepository.findAll();
+    public Collection<Mapel> listAllMapel() {
+        return (Collection<Mapel>) mapelRepository.findAll();
     }
 
     @Override

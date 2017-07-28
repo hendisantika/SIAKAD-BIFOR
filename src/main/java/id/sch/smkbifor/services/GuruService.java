@@ -6,17 +6,22 @@
 package id.sch.smkbifor.services;
 
 import id.sch.smkbifor.entities.Guru;
+import java.util.Collection;
 
 /**
  *
  * @author server02
  */
 public interface GuruService {
-    Iterable<Guru> listAllGuru();
+    Collection<Guru> listAllGuru();
 
     Guru getGuruById(Integer id);
 
-    Guru saveGuru(Guru siswa);
+    Guru saveGuru(Guru guru);
+    
+    Guru updateGuru(Guru guru);
 
     void deleteGuru(Integer id);
+    
+    public Guru findByKodeGuru (String kodeGuru);
 }

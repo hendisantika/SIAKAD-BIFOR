@@ -30,34 +30,34 @@ public class JurusanController {
         this.jurusanService = jurusanService;
     }
     
-    @RequestMapping(path="/admin/jurusan", method=RequestMethod.GET)
+    @RequestMapping(path="/admin/jurusan/index", method=RequestMethod.GET)
     public String goJurusan(Model model) {
         model.addAttribute("jurusan", jurusanService.listAllJurusan());
-        return "admin/jurusan";
+        return "admin/jurusan/index";
     }
     
     @RequestMapping("admin/jurusan/new")
     public String newJurusan(Model model) {
         model.addAttribute("jurusan", new Jurusan());
-        return "admin/formjurusan";
+        return "admin/jurusan/formjurusan";
     }
     
     @RequestMapping(value="jurusan", method=RequestMethod.POST)
     public String saveJurusan(@Valid Jurusan jurusan, BindingResult bindingResult) {
         jurusanService.saveJurusan(jurusan);
-        return "redirect:/admin/jurusan"; 
+        return "redirect:/admin/jurusan/index"; 
     }
     
-    @RequestMapping("jurusan/edit/{id}")
+    @RequestMapping("admin/jurusan/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("jurusan", jurusanService.getJurusanById(id));
-        return "admin/formjurusan";
+        return "admin/jurusan/formjurusan";
     }
     
-    @RequestMapping("jurusan/delete/{id}")
+    @RequestMapping("admin/jurusan/delete/{id}")
     public String delete(@PathVariable Integer id) {
         jurusanService.deleteJurusan(id);
-        return "redirect:/admin/jurusan";
+        return "redirect:admin/admin/jurusan";
     }
     
 }

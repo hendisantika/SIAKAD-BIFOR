@@ -33,8 +33,8 @@ $(document).ready (function() {
             { "data": "status" },
             { "data": "id",
               "render": function (data, type, full, meta) {
-                  return '<a class="btn btn-warning btn-sm" href="/siswa/edit/'+data+'"><i class="fa fa-pencil"></i></a> \n\
-                         <a class="btn btn-danger btn-sm" onclick="javascript:return confirm(\'Anda yakin menghapus siswa ini ?\');" href="/siswa/delete/'+data+'"><i class="fa fa-trash-o"></i></a>';
+                  return '<a class="btn btn-warning btn-sm" href="/admin/siswa/edit/'+data+'"><i class="fa fa-pencil"></i></a> \n\
+                         <a class="btn btn-danger btn-sm" onclick="javascript:return confirm(\'Anda yakin menghapus siswa ini ?\');" href="/admin/siswa/delete/'+data+'"><i class="fa fa-trash-o"></i></a>';
               }
             }
         ]
