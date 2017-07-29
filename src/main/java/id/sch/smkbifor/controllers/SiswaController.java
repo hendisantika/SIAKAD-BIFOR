@@ -78,12 +78,24 @@ public class SiswaController {
         }  
     }
     
+    @RequestMapping(value="siswa", method= {RequestMethod.GET, RequestMethod.PUT})
+    public String updateSiswa(@Valid Siswa siswa, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("listJurusan", jurusanService.listAllJurusan());
+            model.addAttribute("listKelas", kelasService.listAllKelas());
+            return "admin/siswa/updatesiswa";
+        } else {
+        siswaService.saveSiswa(siswa);
+        return "redirect:/admin/siswa/index";
+        }  
+    }
+    
     @RequestMapping("admin/siswa/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("siswa", siswaService.getSiswaById(id));
         model.addAttribute("listJurusan", jurusanService.listAllJurusan());
         model.addAttribute("listKelas", kelasService.listAllKelas());
-        return "admin/siswa/formsiswa";
+        return "admin/siswa/updatesiswa";
     }
     
     @RequestMapping("admin/siswa/delete/{id}")

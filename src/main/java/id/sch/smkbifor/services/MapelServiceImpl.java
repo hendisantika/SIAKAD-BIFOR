@@ -43,6 +43,11 @@ public class MapelServiceImpl implements MapelService {
     }
 
     @Override
+    public Mapel updateMapel(Mapel mapel) {
+        return mapelRepository.save(mapel);
+    }
+    
+    @Override
     public void deleteMapel(Integer id) {
         mapelRepository.delete(id);
     }

@@ -33,7 +33,12 @@ and open the template in the editor.
         <div id="wrap">
             <div id="main" class="container clear-top">
             <h1 align="center">Data Mapel</h1>
-            <p><a th:href="@{/admin/mapel/new}" class="btn btn-primary">Tambah Mapel</a></p>
+            <p>
+            <div class="btn-group">
+                <a th:href="@{/admin/mapel/new}" class="btn btn-info">Tambah Mapel</a>
+                <a th:href="@{/admin/mapel/report}" class="btn btn-warning">PDF</a>
+            </div>
+            </p>
             <table id="mapelTable" class="table table-bordered">
                 <thead>
                     <tr>

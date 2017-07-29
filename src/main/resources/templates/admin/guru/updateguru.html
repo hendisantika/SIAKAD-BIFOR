@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+    <title>SIAKAD SMK BIFOR</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href=
+        "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>  
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    </head>
+    <body>
+        <div th:include="fragments/header :: header">
+            
+        </div>
+        <div id="wrap">
+            <div id="main" class="container clear-top">
+            <h2>Tambah guru</h2>
+            <br/>
+                <form class="form-horizontal" th:object="${guru}" th:action="@{/guru}" method="put">
+                    <input type="hidden" th:field="*{id}"/>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Kode Guru</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" th:field="*{kodeGuru}"/>
+                            <label th:if="${#fields.hasErrors('kodeGuru')}" th:errors="*{kodeGuru}"
+								class="validation-message"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">NUPTK</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" th:field="*{nuptk}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Nama Guru</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" th:field="*{namaGuru}"/>
+                            <label th:if="${#fields.hasErrors('namaGuru')}" th:errors="*{namaGuru}"
+								class="validation-message"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Jenis Kelamin</label>
+                        <div class="col-xs-5">
+                            <label class="radio-inline"><input type="radio" name="optradio" th:field="*{jenisKelamin}" value="Laki-laki">Laki-laki</label>
+                            <label class="radio-inline"><input type="radio" name="optradio" th:field="*{jenisKelamin}" value="Perempuan">Perempuan</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Tempat Lahir</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" th:field="*{tempatLahir}"/>
+                            <label th:if="${#fields.hasErrors('tempatLahir')}" th:errors="*{tempatLahir}"
+								class="validation-message"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Tanggal Lahir</label>
+                        <div class="col-xs-5">
+                        <div class="input-group date " data-date="" data-date-format="yyyy-mm-dd">
+                            <input class="form-control" type="text" name="tgl_regis" th:field="*{tanggalLahir}">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Agama</label>
+                        <div class="col-xs-5">
+                            <div class="selectContainer">
+                                <select class="form-control" name="size" th:field="*{agama}">
+                                    <option value="Islam">Islam</option>
+                                    <option value="Katholik">Katholik</option>
+                                    <option value="Kristen">Kristen</option>
+                                    <option value="Buddha">Buddha</option>
+                                    <option value="Hindu">Hindu</option>
+                                    <option value="Konghucu">Konghucu</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Pendidikan</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" th:field="*{pendidikan}"/>
+                            <label th:if="${#fields.hasErrors('pendidikan')}" th:errors="*{pendidikan}"
+								class="validation-message"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Mengajar</label>
+                        <div class="col-xs-5">
+                            <div class="selectContainer">
+                                <select class="form-control" name="size" th:field="*{mapel}">
+                                    <option th:each="dropDownItem : ${listMapel}"
+                                            th:value="${dropDownItem.id}"
+                                            th:text="${dropDownItem.namaMapel}" />
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Keterangan</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" th:field="*{keterangan}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-5 col-sm-offset-4">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <script type="text/javascript">
+                $(".input-group.date").datepicker({autoclose: true, todayHighlight: true});
+            </script>
+        </script>
+        </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="row-fluid">
+                    <br/>
+                    <div class="pull-left">
+                        <span class="year">&copy; 2009-2017, <a href="http://dekikurnia.com">Deki Kurnia Hadi Permana</a></span>
+                    </div>
+                    <div class="pull-right">
+                        <a class="pull-left mr-5" title="Facebook" href="https://www.facebook.com/dekikantata" target="_blank">
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/popular-social-media-flat/48/Popular_Social_Media-04-32.png" alt="Facebook" width="24" height="24">
+                            </span>
+                        </a>
+                        <a class="pull-left mr-5" title="Instagram" href="https://instagram.com/dekikurnia" target="_blank">
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/popular-social-media-flat/48/Popular_Social_Media-07-128.png" alt="Instagram" width="24" height="24">
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

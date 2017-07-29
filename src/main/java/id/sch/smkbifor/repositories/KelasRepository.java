@@ -7,7 +7,6 @@ package id.sch.smkbifor.repositories;
 
 import id.sch.smkbifor.entities.Kelas;
 import java.util.Collection;
-import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

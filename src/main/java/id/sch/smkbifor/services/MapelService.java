@@ -17,7 +17,9 @@ public interface MapelService {
 
     Mapel getMapelById(Integer id);
 
-    Mapel saveMapel(Mapel siswa);
+    Mapel saveMapel(Mapel mapel);
+    
+    Mapel updateMapel(Mapel mapel);
 
     void deleteMapel(Integer id);
     

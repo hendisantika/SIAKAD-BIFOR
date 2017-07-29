@@ -18,6 +18,8 @@ public interface SiswaService {
     Siswa getSiswaById(Integer id);
 
     Siswa saveSiswa(Siswa siswa);
+    
+    Siswa updateSiswa(Siswa siswa);
 
     void deleteSiswa(Integer id);
     

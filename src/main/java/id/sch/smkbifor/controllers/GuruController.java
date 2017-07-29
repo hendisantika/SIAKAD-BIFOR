@@ -67,7 +67,7 @@ public class GuruController {
         }
     }
     
-    @RequestMapping(value="guru", method=RequestMethod.PUT)
+    @RequestMapping(value="guru", method={RequestMethod.GET, RequestMethod.PUT})
     public String updateGuru(@Valid Guru guru, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("listMapel", mapelService.listAllMapel());

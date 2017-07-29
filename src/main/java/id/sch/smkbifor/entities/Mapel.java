@@ -5,7 +5,6 @@
  */
 package id.sch.smkbifor.entities;
 
-import com.google.gson.Gson;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.CascadeType;

@@ -39,6 +39,11 @@ public class SiswaServiceImpl implements SiswaService{
     public Siswa saveSiswa(Siswa siswa) {
         return siswaRepository.save(siswa);
     }
+    
+    @Override
+    public Siswa updateSiswa(Siswa siswa) {
+        return siswaRepository.save(siswa);
+    }
 
     @Override
     public void deleteSiswa(Integer id) {
