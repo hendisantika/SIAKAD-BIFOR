@@ -20,11 +20,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class MapelReportController {
     
     @Autowired
-    private MapelService materiService;
+    private MapelService mapelService;
     
     @RequestMapping("admin/mapel/report")
     public ModelAndView generateMapelReport(ModelAndView model) {
-        Iterable<Mapel> data = materiService.listAllMapel();
+        Iterable<Mapel> data = mapelService.listAllMapel();
         model.addObject("dataSource", data);
         model.addObject("format", "pdf");
         model.setViewName("laporan_kelas");
